@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Categories component should render correctly 1`] = `
+<div>
+  <h3>
+    Categories
+  </h3>
+  <hr />
+  <Nav
+    tag="ul"
+    vertical={true}
+  >
+    <NavItem
+      tag="li"
+    >
+      <NavLink
+        href="/"
+        tag="a"
+      >
+        All
+      </NavLink>
+    </NavItem>
+    <NavItem
+      key="React"
+      tag="li"
+    >
+      <NavLink
+        href="/categories/react/posts"
+        tag="a"
+      >
+        React
+      </NavLink>
+    </NavItem>
+    <NavItem
+      key="Redux"
+      tag="li"
+    >
+      <NavLink
+        href="/categories/redux/posts"
+        tag="a"
+      >
+        Redux
+      </NavLink>
+    </NavItem>
+  </Nav>
+</div>
+`;
