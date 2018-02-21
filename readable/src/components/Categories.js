@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { NavLink as RRNavLink } from 'react-router-dom'
 import { Nav, NavItem, NavLink } from 'reactstrap'
-import Api from '../utils/api'
+import Api from '../api/categories'
 
 class Categories extends Component {
     state = {
@@ -19,15 +20,15 @@ class Categories extends Component {
             <div>
                 <h3>Categories</h3>
                 <hr />
-                <Nav vertical>
+                <Nav pills={true} vertical>
                     <NavItem>
-                        <NavLink href="/">All</NavLink>
+                        <NavLink tag={RRNavLink} activeClassName="active" exact to="/">All</NavLink>
                     </NavItem>
                     {
                         categories.map((category) => {
                             return (
                                 <NavItem key={category.name}>
-                                    <NavLink href={`/categories/${category.path}/posts`}>{category.name}</NavLink>
+                                    <NavLink tag={RRNavLink} to={`/${category.path}`} activeClassName='active'>{category.name}</NavLink>
                                 </NavItem>
                             );
                         })

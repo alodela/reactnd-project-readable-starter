@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux'
-import { LOAD_POSTS_SUCCESS } from '../actions/Post'
+import { routerReducer } from 'react-router-redux'
 
-function posts(state = [], action) {
-  switch (action.type) {
-    case LOAD_POSTS_SUCCESS :
-      return action.posts
-    default :
-      return state;
-  }
-}
+import posts from './posts'
+import comments from './comments'
+
+const entities = combineReducers({
+  posts,
+  comments,
+})
 
 export default combineReducers({
-  posts,
+  routerReducer,
+  entities,
 })

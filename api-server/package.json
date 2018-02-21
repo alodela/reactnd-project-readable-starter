@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A server for the Udacity Reddit Clone project for ReactND",
   "main": "index.js",
+  "scripts": {
+    "debug": "node --nolazy --inspect-brk=9229 server.js"
+  },
   "keywords": [
     "udacity",
     "redux",
@@ -13,9 +16,12 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "clone": "^2.1.1",
     "cors": "^2.8.3",
     "dotenv": "^4.0.0",
-    "express": "^4.15.2",
-    "clone": "^2.1.1"
+    "express": "^4.15.2"
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.2"
   }
 }

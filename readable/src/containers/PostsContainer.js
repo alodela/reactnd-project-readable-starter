@@ -1,15 +1,19 @@
-import { loadPosts } from '../actions/Post'
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import Posts from '../components/Posts';
+import { loadPosts, voteUp, voteDown, deletePost } from '../actions/post'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import PostList from '../components/Posts/PostList'
 
-const mapStateToProps = ({ posts }) => {
-    console.log("Map state to props", posts)
-    return { posts }
+const mapStateToProps = (state) => {
+    return {
+        posts: state.entities.posts
+    }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    loadPosts: loadPosts
+    loadPosts,
+    voteUp,
+    voteDown,
+    deletePost,
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(Posts);
+export default connect(mapStateToProps, mapDispatchToProps)(PostList)
