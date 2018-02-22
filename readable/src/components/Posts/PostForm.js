@@ -33,10 +33,10 @@ class PostForm extends Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for="postCategory">Category</Label>
-                    <Input type="select" name="category" id="postCategory" onChange={this.props.onChange}>
+                    <Input type="select" name="category" id="postCategory" defaultValue={category} onChange={this.props.onChange}>
                         <option value="">Select a category</option>
                         {categories.map((categoryItem, index) => (
-                            <option value={categoryItem.name} key={index} selected={category === categoryItem.name}>{categoryItem.name}</option>
+                            <option value={categoryItem.name} key={index}>{categoryItem.name}</option>
                         ))}
                     </Input>
                 </FormGroup>
