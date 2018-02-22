@@ -31,7 +31,7 @@ class NewPost extends Component {
 
     isFormValid() {
         let errorMessage = ''
-        const fields = ['title', 'body', 'author']
+        const fields = ['title', 'body', 'author', 'category']
 
         fields.forEach(field => {
             let error = this.validateField(field)

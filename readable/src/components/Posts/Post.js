@@ -59,6 +59,14 @@ class Post extends Component {
             })
     }
 
+    deletePost() {
+        const { post } = this.state;
+
+        if (window.confirm("Are you sure you want to delete this post?")) {
+            this.props.deletePost(post)
+        }
+    }
+
     render() {
         const post = this.props.post;
         const {
@@ -95,7 +103,10 @@ class Post extends Component {
                 <div>
                     <Row>
                         <Col>
-                            <Button color="link" className="float-right" onClick={this.editPost.bind(this)}>Edit</Button>
+                            <div className="float-right">
+                                <Button color="danger" className="float-right" onClick={this.deletePost.bind(this)}>Delete</Button>
+                                <Button color="link" className="float-right" onClick={this.editPost.bind(this)}>Edit</Button>
+                            </div>
                             <h2>{title}</h2>
                             <h6 className="text-secondary mb-4"><Moment format="MMMM Do, YYYY" date={timestamp} /> by {author}</h6>
                             <p>{body}</p>

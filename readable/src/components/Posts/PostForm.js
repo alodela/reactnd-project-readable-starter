@@ -10,11 +10,11 @@ class PostForm extends Component {
 
     componentDidMount() {
         Api.fetchCategories()
-            .then((categories) => this.setState({ categories: categories }))
+            .then((categories) => this.setState({ categories }))
     }
 
     render() {
-        let { title, body, author } = this.props.post
+        let { title, body, author, category } = this.props.post
         let { categories } = this.state
 
         return (
@@ -25,7 +25,7 @@ class PostForm extends Component {
                 </FormGroup>
                 <FormGroup>
                     <Label for="postBody">Body</Label>
-                    <Input type="textarea" rows="10" name="body" id="postBody" placeholder="Post body"  defaultValue={body} onChange={this.props.onChange} />
+                    <Input type="textarea" rows="10" name="body" id="postBody" placeholder="Post body" defaultValue={body} onChange={this.props.onChange} />
                 </FormGroup>
                 <FormGroup>
                     <Label for="postAuthor">Author</Label>
@@ -34,8 +34,9 @@ class PostForm extends Component {
                 <FormGroup>
                     <Label for="postCategory">Category</Label>
                     <Input type="select" name="category" id="postCategory" onChange={this.props.onChange}>
-                        {categories.map((category, index) => (
-                            <option key={index}>{category.name}</option>
+                        <option value="">Select a category</option>
+                        {categories.map((categoryItem, index) => (
+                            <option value={categoryItem.name} key={index} selected={category === categoryItem.name}>{categoryItem.name}</option>
                         ))}
                     </Input>
                 </FormGroup>
